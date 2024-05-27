@@ -4,19 +4,9 @@ import axios from "axios";
 import MenuList from "../components/AdminComponents/MenuList";
 import ViewChoices from "../components/AdminComponents/ViewChoices";
 import '../styles/AdminStyles.css';
+import { Choice, Menu } from "../types/types";
 
-interface Menu {
-  id: number;
-  date: string;
-  options: string[];
-}
 
-export interface Choice {
-  id: number;
-  date: string;
-  employee_name: string;
-  choices: string[];
-}
 const Admin: React.FC = () => {
   const [menus, setMenus] = useState<Menu[]>([]);
   const [choices, setChoices] = useState<Choice[]>([]);
@@ -44,7 +34,7 @@ const Admin: React.FC = () => {
     };
     fetchChoices();
   }, []);
-  console.log(menus);
+  
   return (
     <div>
       <h1 className="admin-title">Admin Interface</h1>

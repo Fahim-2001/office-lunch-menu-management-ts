@@ -53,6 +53,17 @@
     border-radius: 10px;
 }
 
+.choice-item{
+    margin-bottom: 10px;
+    border: 1px black solid;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.choice-title{
+    margin-bottom: 15px;
+}
+
 /* Media query for mobile devices */
 @media (max-width: 600px) {
     .menu-choice-grid {

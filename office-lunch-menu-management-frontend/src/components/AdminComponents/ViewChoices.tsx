@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../styles/AdminStyles.css'
 
 interface Choice {
   date: string;
@@ -13,7 +14,7 @@ interface ViewChoicesProps {
 const ViewChoices: React.FC<ViewChoicesProps> = ({ choices }) => {
   return (
     <div className="view-choices">
-      <h2>Employee Choices</h2>
+      <h2 className='choice-title'>Employee Choices</h2>
       {choices.length === 0 ? (
         <p>No choices submitted yet.</p>
       ) : (

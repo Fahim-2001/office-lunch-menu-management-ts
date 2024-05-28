@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use('/api', menuRoutes);
 app.use('/api', choiceRoutes);
 
-app.get('/api', async (req: Request, res: Response) => {
+app.get('/', async (req: Request, res: Response) => {
   try {
     res.send("Welcome to Office Lunch System Backend Services");
   } catch (error: any) {

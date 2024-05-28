@@ -9,7 +9,6 @@
 - PostgreSQL
 - TypeScript
 - bcrypt for password hashing
-- jsonwebtoken for authentication
 
 ### Frontend
 

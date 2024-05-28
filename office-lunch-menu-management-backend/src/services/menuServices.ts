@@ -5,8 +5,8 @@ export const allMenu = async () => {
   try {
     const result = await pool.query("SELECT * FROM menus");
     return result.rows;
-  } catch (error) {
-    throw new Error("Menu getting " + error.message);
+  } catch (error:any) {
+    throw new Error(error.message);
   }
 };
 
@@ -25,7 +25,8 @@ export const addMenu = async (menuData:Menu) => {
       date: menuDate.toISOString().split("T")[0],
       options: result.rows[0].options,
     };
+    return menu;
   } catch (error:any) {
-    throw new Error("Menu adding " + error.message);
+    throw new Error(error.message);
   }
 };

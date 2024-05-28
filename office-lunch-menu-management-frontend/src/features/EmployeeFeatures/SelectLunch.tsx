@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
-import '../../styles/EmployeeStyles.css'
+import "../../styles/EmployeeStyles.css";
+import { useUser } from "../../contexts/UserContext";
 
 interface MenuOption {
   date: string;
@@ -13,7 +14,7 @@ interface SelectLunchProps {
 
 const SelectLunch: React.FC<SelectLunchProps> = ({ menu }) => {
   const [choices, setChoices] = useState<string[]>([]);
-  const [employeeName, setEmployeeName] = useState<string>("");
+  const { user } = useUser();
 
   const handleCheckboxChange = (option: string) => {
     if (choices.includes(option)) {
@@ -25,29 +26,24 @@ const SelectLunch: React.FC<SelectLunchProps> = ({ menu }) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (employeeName.trim() === "") {
-      alert("Please enter your name.");
-      return;
-    }
     if (choices.length === 0) {
       alert("Please select at least one lunch option.");
       return;
     }
     const choiceData = {
-      employeeName: employeeName.trim(),
+      employeeName: user?.name,
       date: menu?.date,
       choices: choices.slice(),
     };
     axios.post("http://localhost:3000/api/choices", choiceData).then((res) => {
       if (res.status === 201) {
         alert(
-          `Thank you, ${employeeName.trim()}! You have selected ${choices.join(
+          `Thank you, ${user?.name.trim()}! You have selected ${choices.join(
             ", "
           )} for lunch.`
         );
       }
     });
-    setEmployeeName("");
     setChoices([]);
   };
 
@@ -56,20 +52,18 @@ const SelectLunch: React.FC<SelectLunchProps> = ({ menu }) => {
       <h2>Select Your Lunch</h2>
       {menu ? (
         <form className="today-menu-container" onSubmit={handleSubmit}>
-          <div >
+          <div>
             <h3>{new Date(menu.date).toDateString()}</h3>
             <div className="emp-name-inputs">
-              <label >Employee Name:</label>
-              <input
-                type="text"
-                value={employeeName}
-                onChange={(e) => setEmployeeName(e.target.value)}
-                required
-              />
+              <label>Employee email: {user?.name}</label>
             </div>
-            <ul >
+            <ul>
               {menu.options.map((option) => (
-                <li className="today-menu-item" key={option} style={{ display: "flex" }}>
+                <li
+                  className="today-menu-item"
+                  key={option}
+                  style={{ display: "flex" }}
+                >
                   <input
                     type="checkbox"
                     value={option}
@@ -81,7 +75,9 @@ const SelectLunch: React.FC<SelectLunchProps> = ({ menu }) => {
               ))}
             </ul>
           </div>
-          <button className="select-lunch-btn" type="submit">Add Choice</button>
+          <button className="select-lunch-btn" type="submit">
+            Add Choice
+          </button>
         </form>
       ) : (
         <p>No menu available for today.</p>

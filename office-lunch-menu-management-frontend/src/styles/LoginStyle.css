@@ -1,27 +1,22 @@
-.reg-container{
+.login-container{
     display: grid;
     justify-content: center;
 }
 
-.reg-title{
+.login-title{
     font-size: 20px;
     font-weight: 700;
     text-align: center;
     margin: 20px 0px;
 }
 
-.reg-selects{
-    margin: 0px 3px;
-    padding: 5px;
-}
-
-.reg-input{
+.login-input{
     margin: 10px 0px;
     padding: 5px;
     width: 90%;
 }
 
-.reg-btn{
+.login-btn{
     width: 96%;
     margin: 20px 0px;
     background-color: #fa4b00fc;
@@ -33,6 +28,6 @@
     border-radius: 5px;
 }
 
-.reg-footer{
+.login-footer{
     font-size: 14px;
 }

@@ -10,7 +10,7 @@
 
 ### Frontend
 
-- React.js
+- React.js + vite
 - TypeScript
 - Axios
 

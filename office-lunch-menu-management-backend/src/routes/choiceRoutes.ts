@@ -4,7 +4,7 @@ import { createChoice, getAllChoices } from '../controllers/choiceController';
 
 const router = Router();
 
-router.get('/choices', getAllChoices);
-router.post('/choices', createChoice);
+router.get('/', getAllChoices);
+router.post('/', createChoice);
 
 export default router;

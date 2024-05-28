@@ -3,6 +3,7 @@ import cors from 'cors';
 import morgan from 'morgan'
 import bodyParser from 'body-parser';
 import menuRoutes from './routes/menuRoutes';
+import choiceRoutes from './routes/choiceRoutes'
 
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use('/api', menuRoutes);
+app.use('/api', choiceRoutes);
 
 app.get('/api', async (req: Request, res: Response) => {
   try {

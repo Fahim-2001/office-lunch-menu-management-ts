@@ -94,14 +94,14 @@
 
     CREATE TABLE menus (
     id SERIAL PRIMARY KEY,
-    date DATE NOT NULL,
+    date TEXT NOT NULL,
     options TEXT[] NOT NULL
     );
 
     CREATE TABLE choices (
     id SERIAL PRIMARY KEY,
     employee_name TEXT NOT NULL,
-    date DATE NOT NULL,
+    date TEXT NOT NULL,
     choices TEXT[] NOT NULL
     );
 ```
@@ -166,6 +166,3 @@
 
 #### Get All choice using GET on `http://localhost:3000/api/choices`
 
-```
-
-```

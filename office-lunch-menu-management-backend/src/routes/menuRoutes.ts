@@ -4,7 +4,7 @@ import { createMenu, getAllMenus } from '../controllers/menuController';
 
 const router = Router();
 
-router.post('/menus', createMenu);
-router.get('/menus', getAllMenus);
+router.post('/', createMenu);
+router.get('/', getAllMenus);
 
 export default router;

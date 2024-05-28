@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import morgan from 'morgan'
 import bodyParser from 'body-parser';
+import userRoutes from './routes/userRoutes'
 import menuRoutes from './routes/menuRoutes';
 import choiceRoutes from './routes/choiceRoutes'
 
@@ -13,8 +14,9 @@ app.use(morgan('dev'))
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use('/api', menuRoutes);
-app.use('/api', choiceRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/menus', menuRoutes);
+app.use('/api/choices', choiceRoutes);
 
 app.get('/', async (req: Request, res: Response) => {
   try {

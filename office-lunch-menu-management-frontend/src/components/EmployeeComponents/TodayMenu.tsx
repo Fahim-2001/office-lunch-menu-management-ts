@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../styles/EmployeeStyles.css'
 
 interface Menu {
   date: string;
@@ -15,7 +16,7 @@ const TodayMenu: React.FC<TodayMenuProps> = ({ menus }) => {
 
   return (
     <div className="today-menu">
-      <h2>Today's Menu</h2>
+      <h2 className='today-menu-title'>Today's Menu</h2>
       {todayMenu ? (
         <div>
           <h3>{new Date(todayMenu.date).toDateString()}</h3>

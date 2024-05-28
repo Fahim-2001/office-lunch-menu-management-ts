@@ -12,7 +12,7 @@ const AppRoutes: React.FC = () => {
       <NavBar />
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="/admin" element={<Admin />} />
+          <Route path="/" element={<Admin />} />
           <Route path="/employee" element={<Employee />} />
         </Routes>
       </Suspense>

@@ -6,19 +6,26 @@
 .nav-list {
     list-style: none;
     display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
+    justify-content: space-around;  
     padding: 0;
 }
 
 .nav-item {
     color: white;
     border-radius: 4px;
-    margin-bottom: 10px;
 }
 
 .nav-item a {
     color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 1px solid white;
+    border-radius: 4px;
+}
+
+.logout-btn{
+    color:black;
+    font-weight: 600;
     text-decoration: none;
     padding: 10px 20px;
     border: 1px solid white;

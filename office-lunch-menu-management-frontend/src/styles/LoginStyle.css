@@ -1,0 +1,33 @@
+.login-container{
+    display: grid;
+    justify-content: center;
+}
+
+.login-title{
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.login-input{
+    margin: 10px 0px;
+    padding: 5px;
+    width: 90%;
+}
+
+.login-btn{
+    width: 96%;
+    margin: 20px 0px;
+    background-color: #fa4b00fc;
+    padding: 5px 0px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+}
+
+.login-footer{
+    font-size: 14px;
+}

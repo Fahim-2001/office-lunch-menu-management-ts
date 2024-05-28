@@ -27,7 +27,11 @@ export const addUserToDB = async (user: User) => {
 export const verifyUser = async(user:User)=>{
     try {
         const existingUser = await pool.query("SELECT * FROM users WHERE email=$1",[user.email]);
-        if(user.email === existingUser.rows[0].email){
+        if(existingUser.rows.length === 0) return false;
+
+        const isCorrectPass = await bcrypt.compare(user.password,existingUser.rows[0].password);
+
+        if(user.email === existingUser.rows[0].email && isCorrectPass){
             return true;
         }
         return false;
